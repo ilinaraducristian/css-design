@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  margin-top: 3em;
+  padding: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#projects > li {
+  background-color: aquamarine;
+  padding: 5em 0;
+}
+
+#hoverContainer{
+  background-color: aqua;
+  overflow: hidden;
+  max-width: 10em;
+  max-height: 10em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+#hoverContainer ul {
+  transition: linear 500ms;
+}
+
+#hoverContainer ul li {
+  width: 10em;
+  height: 10em;
+}
