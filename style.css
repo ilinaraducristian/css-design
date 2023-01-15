@@ -15,6 +15,10 @@ ul {
   padding: 5em 0;
 }
 
+#projects:hover + #hoverContainer {
+  display: block;
+}
+
 #hoverContainer{
   background-color: aqua;
   overflow: hidden;
@@ -24,6 +28,7 @@ ul {
   top: 0;
   left: 0;
   pointer-events: none;
+  display: none;
 }
 
 #hoverContainer ul {

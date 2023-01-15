@@ -5,8 +5,6 @@ window.onload = () => {
   const hoverContainerElement = /** @type {HTMLDivElement} */ (document.getElementById('hoverContainer'));
   const imagesContainerElement = /** @type {HTMLUListElement} */ (document.getElementById('imagesContainer'));
   const projectsElement = /** @type {HTMLUListElement} */ (document.getElementById('projects'));
-  projectsElement.addEventListener('mouseenter', displayHoverContainer(hoverContainerElement));
-  projectsElement.addEventListener('mouseleave', hideHoverContainer(hoverContainerElement));
   projectsElement.addEventListener('mousemove', moveHoverContainer(hoverContainerElement));
 
   Array.from(document.getElementsByClassName('project'))
@@ -23,24 +21,6 @@ function changeHoverContainerImage(imagesContainerElement, i) {
   return () => {
     imagesContainerElement.style.transform = `translateY(-${i*size}px)`;
     console.log(i);
-  }
-}
-
-/**
- * @param {HTMLDivElement} hoverContainerElement
- */
-function displayHoverContainer(hoverContainerElement) {
-  return () => {
-    hoverContainerElement.style.display = 'block';
-  }
-}
-
-/**
- * @param {HTMLDivElement} hoverContainerElement
- */
-function hideHoverContainer(hoverContainerElement) {
-  return () => {
-    hoverContainerElement.style.display = 'none';
   }
 }
 
