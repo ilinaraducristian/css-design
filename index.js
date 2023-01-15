@@ -4,34 +4,26 @@ const size = 160;
 window.onload = () => {
   const hoverContainerElement = /** @type {HTMLDivElement} */ (document.getElementById('hoverContainer'));
   const imagesContainerElement = /** @type {HTMLUListElement} */ (document.getElementById('imagesContainer'));
-  const projectsElement = /** @type {HTMLUListElement} */ (document.getElementById('projects'));
-  projectsElement.addEventListener('mousemove', moveHoverContainer(hoverContainerElement));
+  /** @type {HTMLUListElement} */ (document.getElementById('projects')).addEventListener('mousemove', moveHoverContainer);
 
-  Array.from(document.getElementsByClassName('project'))
+  document.querySelectorAll('#projects > li')
   .forEach((li, i) =>
-    li.addEventListener('mouseenter', changeHoverContainerImage(imagesContainerElement, i))
+    li.addEventListener('mouseenter', changeHoverContainerImage(i))
   );
-}
-
-/**
- * @param {HTMLUListElement} imagesContainerElement
- * @param {number} i
- */
-function changeHoverContainerImage(imagesContainerElement, i) {
-  return () => {
-    imagesContainerElement.style.transform = `translateY(-${i*size}px)`;
-    console.log(i);
+  
+  /**
+   * @param {number} i
+   */
+  function changeHoverContainerImage(i) {
+    return () => {
+      imagesContainerElement.style.transform = `translateY(-${i*size}px)`;
+    };
   }
-}
-
-/**
- * @param {HTMLDivElement} hoverContainerElement
- */
-function moveHoverContainer(hoverContainerElement) {
+  
   /**
    * @param {MouseEvent} event
    */
-  return (event) => {
+  function moveHoverContainer(event) {
     hoverContainerElement.style.left = `${event.pageX-size/2}px`;
     hoverContainerElement.style.top = `${event.pageY-size/2}px`;
   }
