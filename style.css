@@ -29,6 +29,7 @@ ul {
   left: 0;
   pointer-events: none;
   display: none;
+  transition: left 100ms, top 100ms;
 }
 
 #hoverContainer ul {
